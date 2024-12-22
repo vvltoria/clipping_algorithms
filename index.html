@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Алгоритмы отсечения отрезков</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+
+    <a href="theory.html" class="theory-button">Теория</a>
+
+    <div class="container">
+        <h1>Алгоритмы отсечения отрезков</h1>
+        <div class="clipping-section">
+
+            <div class="clipping-box">
+                <h2>Отсечение отрезков прямоугольным окном (Лианга-Барски)</h2>
+                <textarea id="inputDataRectangle" rows="10" placeholder="Введите данные (n, отрезки, прямоугольник)...">
+3
+-8 -8 8 8
+-5 5 5 -5
+-10 0 10 0
+-5 -5 5 5
+                </textarea>
+                <br>
+                <button onclick="processRectangleClipping()">Выполнить отсечение</button>
+                <button onclick="zoomInRectangle()">Увеличить масштаб</button>
+                <button onclick="zoomOutRectangle()">Уменьшить масштаб</button>
+                <button onclick="clearCanvasRectangle()">Очистить канвас</button>
+                <span>Масштаб: <span id="currentScaleRectangle">1.0</span>x</span>
+                <canvas id="canvasRectangle" width="400" height="400"></canvas>
+                <div class="steps-container">
+                    <h3>Шаги алгоритма Лианга-Барски:</h3>
+                    <div id="stepsRectangle" class="steps"></div>
+                </div>
+            </div>
+            
+            <div class="clipping-polygon">
+                <h2>Отсечение отрезков выпуклым многоугольником (Кайруса-Бека)</h2>
+                <textarea id="inputDataPolygon" rows="10" placeholder="Введите данные (n, отрезки, многоугольник)...">
+3
+-8 -8 8 8
+-5 5 5 -5
+-10 0 10 0
+4
+-5 -5
+5 -5
+5 5
+-5 5
+                </textarea>
+                <br>
+                <button onclick="processPolygonClipping()">Выполнить отсечение</button>
+                <button onclick="zoomInPolygon()">Увеличить масштаб</button>
+                <button onclick="zoomOutPolygon()">Уменьшить масштаб</button>
+                <button onclick="clearCanvasPolygon()">Очистить канвас</button>
+                <span>Масштаб: <span id="currentScalePolygon">1.0</span>x</span>
+                <canvas id="canvasPolygon" width="400" height="400"></canvas>
+
+                <div class="steps-container">
+                    <h3>Шаги алгоритма Кайруса-Бека:</h3>
+                    <div id="stepsPolygon" class="steps"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
